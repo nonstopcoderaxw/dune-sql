@@ -25,7 +25,7 @@ FROM (
     END 
 
     UNION ALL
-    
+
     -- inbound transfers
     SELECT 
         cex.cex_name, 
