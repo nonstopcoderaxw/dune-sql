@@ -1,6 +1,6 @@
 DROP TABLE if exists "cex.addresses";
-
 DROP TABLE if exists "ethereum.traces";
+DROP TABLE if exists "ethereum.transactions";
 
 CREATE TABLE "cex.addresses"(
     blockchain TEXT,
@@ -34,6 +34,29 @@ CREATE TABLE "ethereum.traces"(
     input TEXT,
     output TEXT,
     refund_address TEXT,
+    block_date date
+);
+
+CREATE TABLE "ethereum.transactions"(
+    block_time timestamp,
+    block_number int8,
+    value int8,
+    gas_limit int8,
+    gas_price int8,
+    gas_used int8,
+    max_fee_per_gas int8,
+    max_priority_fee_per_gas int8,
+    priority_fee_per_gas int8,
+    nonce int8,
+    index int8,
+    success bool,
+    "from" TEXT,
+    "to" TEXT,
+    block_hash TEXT,
+    data TEXT, 
+    hash TEXT, 
+    type TEXT, 
+    access_list TEXT, 
     block_date date
 );
 
@@ -75,3 +98,28 @@ COPY "ethereum.traces"(
 )
 FROM
     '/Volumes/t7/mac/gitProjects/dune-sql/src/postgres_scripts/csv/ethereum.traces.csv' DELIMITER ',' CSV HEADER;
+
+COPY "ethereum.transactions"(
+    block_time,
+    block_number,
+    value,
+    gas_limit,
+    gas_price,
+    gas_used,
+    max_fee_per_gas,
+    max_priority_fee_per_gas,
+    priority_fee_per_gas,
+    nonce,
+    index,
+    success,
+    "from",
+    "to",
+    block_hash,
+    data, 
+    hash, 
+    type, 
+    access_list, 
+    block_date
+)
+FROM
+    '/Volumes/t7/mac/gitProjects/dune-sql/src/postgres_scripts/csv/ethereum.transactions.csv' DELIMITER ',' CSV HEADER;
