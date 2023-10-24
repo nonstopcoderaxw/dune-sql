@@ -1,0 +1,11 @@
+{
+  "name": "dune-sql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nonstopcoderaxw/dune-sql.git",
+  "author": "axw <axw>",
+  "license": "MIT",
+  "scripts": {
+    "sql:create:tables": "cd ./src/postgres_scripts/; sh ./create_tables.sh"
+  }
+}
