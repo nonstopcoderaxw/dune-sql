@@ -5,7 +5,16 @@
   "repository": "git@github.com:nonstopcoderaxw/dune-sql.git",
   "author": "axw <axw>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "sql:create:tables": "cd ./src/postgres_scripts/; sh ./create_tables.sh"
+    "sql:create:tables": "cd ./dune/postgres_scripts/; sh ./create_tables.sh"
+  },
+  "devDependencies": {
+    "csv": "^6.2.5",
+    "csv-writer": "^1.6.0",
+    "esm": "^3.2.25",
+    "node-fetch": "^3.3.0",
+    "writer": "^1.0.0",
+    "dotenv": "^16.3.1"
   }
 }
