@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Get the query ID from the command line arguments
-const queryID = process.argv[2]; // Example Query ID: 1258228
+const queryID = process.env.QUERY_ID; // Example Query ID: 1258228
 console.log("retrieving data for query " + queryID + "..."); // Check that Query ID is passing through
 
 // Add the API key to header object
@@ -92,7 +92,7 @@ async function fetchQueryData(queryID) {
     }
 
     const resultsData = await resultsResponse.text();
-
+    
     // Save the CSV data to a file
     const fileName = `results_${queryID}.csv`;
     fs.writeFile(fileName, resultsData, (err) => {

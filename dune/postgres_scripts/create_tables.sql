@@ -5,6 +5,8 @@ DROP TABLE if exists "ethereum.traces";
 
 DROP TABLE if exists "ethereum.transactions";
 
+DROP VIEW if exists "evms.contracts.last_submitted";
+
 DROP TABLE if exists "evms.contracts";
 
 DROP TABLE if exists "ethereum.signatures";

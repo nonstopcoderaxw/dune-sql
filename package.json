@@ -7,10 +7,13 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "sql:create:tables": "cd ./dune/postgres_scripts/; sh ./create_tables.sh"
+    "sql:create:tables": "cd ./dune/postgres_scripts/; sh ./create_tables.sh",
+    "dune:import:csv": "node ./src/dune-export-csv.js",
+    "fix:dist:ethereum:traces": "node ./src/fix-dist-ethereum-traces.js"
   },
   "devDependencies": {
     "csv": "^6.2.5",
+    "csv-parse": "5.5.2",
     "csv-writer": "^1.6.0",
     "esm": "^3.2.25",
     "node-fetch": "^3.3.0",
