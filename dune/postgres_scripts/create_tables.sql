@@ -1,17 +1,15 @@
 -- STEP 1
-DROP TABLE if exists "cex.addresses";
+DROP TABLE if exists "cex.addresses" CASCADE;
 
-DROP TABLE if exists "ethereum.traces";
+DROP TABLE if exists "ethereum.traces" CASCADE;
 
-DROP TABLE if exists "ethereum.transactions";
+DROP TABLE if exists "ethereum.transactions" CASCADE;
 
-DROP VIEW if exists "evms.contracts.last_submitted";
+DROP TABLE if exists "evms.contracts" CASCADE;
 
-DROP TABLE if exists "evms.contracts";
+DROP TABLE if exists "ethereum.signatures" CASCADE;
 
-DROP TABLE if exists "ethereum.signatures";
-
-DROP TABLE if exists "ethereum.logs";
+DROP TABLE if exists "ethereum.logs" CASCADE;
 
 -- STEP 2
 CREATE TABLE "cex.addresses"(
@@ -125,7 +123,7 @@ COPY "cex.addresses"(
     added_date
 )
 FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/dune/postgres_scripts/csv/cex.addresses.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7 3/mac/gitProjects/dune-sql/dune/postgres_scripts/csv/cex.addresses.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.traces"(
     block_time,
@@ -153,7 +151,7 @@ COPY "ethereum.traces"(
     block_date
 )
 FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/dune/postgres_scripts/csv/ethereum.traces.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7 3/mac/gitProjects/dune-sql/dune/postgres_scripts/csv/ethereum.traces.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.transactions"(
     block_time,
@@ -178,7 +176,7 @@ COPY "ethereum.transactions"(
     block_date
 )
 FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/dune/postgres_scripts/csv/ethereum.transactions.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7 3/mac/gitProjects/dune-sql/dune/postgres_scripts/csv/ethereum.transactions.csv' DELIMITER ',' CSV HEADER;
 
 COPY "evms.contracts"(
     blockchain,
@@ -195,7 +193,7 @@ COPY "evms.contracts"(
     created_at
 )
 FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/dune/postgres_scripts/csv/evms.contracts.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7 3/mac/gitProjects/dune-sql/dune/postgres_scripts/csv/evms.contracts.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.signatures"(
     id,
@@ -207,7 +205,7 @@ COPY "ethereum.signatures"(
     created_at
 )
 FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/dune/postgres_scripts/csv/ethereum.signatures.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7 3/mac/gitProjects/dune-sql/dune/postgres_scripts/csv/ethereum.signatures.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.logs"(
     block_time,
@@ -227,4 +225,4 @@ COPY "ethereum.logs"(
     tx_to
 )
 FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/dune/postgres_scripts/csv/ethereum.logs.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7 3/mac/gitProjects/dune-sql/dune/postgres_scripts/csv/ethereum.logs.csv' DELIMITER ',' CSV HEADER;

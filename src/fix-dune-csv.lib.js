@@ -1,5 +1,5 @@
 import { parse } from "csv-parse/sync";
-import fs from "fs";
+import { stringify } from "csv-stringify/sync";
 
 export const fix_block_number = (csv_string) => {
   const records = parse(csv_string, {
@@ -7,7 +7,12 @@ export const fix_block_number = (csv_string) => {
     skip_empty_lines: true,
   });
 
-  const column_two = records.map((rec) => rec["block_number"]);
-  console.log("column_two", column_two);
-  // TBC fix the block number and then return csv_string
+  const fixed_records = records.map((cols) => {
+    cols["block_number"] = Number(cols["block_number"]);
+    return cols;
+  });
+
+  return stringify(fixed_records, {
+    header: true
+  });
 };

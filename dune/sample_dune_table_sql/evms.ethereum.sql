@@ -1,12 +1,69 @@
 select
-	*,
-	row_number() over (
-		partition by blockchain,
-		address
-		order by
-			created_at desc
-	) as last_submitted
+  *
 from
-	evms.contracts
-where created_at > now() - interval '2' day
-and blockchain in ('ethereum', 'base', 'bnb', 'polygon')
+  evms.contracts
+where
+  created_at > now() - interval '1' day
+  and blockchain in ('ethereum', 'base', 'bnb', 'polygon')
+  or address in (
+    0x45c591cf1628821b3bc30e04699258c9cdee1a21,
+    0x9f2adedc1fc5a707480e2e1397694fa930a6bede,
+    0x1e0447b19bb6ecfdae1e4ae1694b0c3659614e4e,
+    0x56e7d4520abfecf10b38368b00723d9bd3c21ee1,
+    0x52f1c952a48a4588f9ae615d38cfdbf8df036e60,
+    0x0eed07ced0c8c36d4a5bff44f2536422bb09be45,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0x45c591cf1628821b3bc30e04699258c9cdee1a21,
+    0x9f2adedc1fc5a707480e2e1397694fa930a6bede,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0x39aa39c021dfbae8fac545936693ac917d5e7563,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0xd8ec56013ea119e7181d231e5048f90fbbe753c0,
+    0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b,
+    0xbafe01ff935c7305907c33bf824352ee5979b526,
+    0x39aa39c021dfbae8fac545936693ac917d5e7563,
+    0x39aa39c021dfbae8fac545936693ac917d5e7563,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b,
+    0xbafe01ff935c7305907c33bf824352ee5979b526,
+    0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b,
+    0xbafe01ff935c7305907c33bf824352ee5979b526,
+    0x39aa39c021dfbae8fac545936693ac917d5e7563,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0xd8ec56013ea119e7181d231e5048f90fbbe753c0,
+    0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b,
+    0xbafe01ff935c7305907c33bf824352ee5979b526,
+    0x65c816077c29b557bee980ae3cc2dce80204a0c5,
+    0x39aa39c021dfbae8fac545936693ac917d5e7563,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0x65c816077c29b557bee980ae3cc2dce80204a0c5,
+    0x39aa39c021dfbae8fac545936693ac917d5e7563,
+    0x39aa39c021dfbae8fac545936693ac917d5e7563,
+    0x39aa39c021dfbae8fac545936693ac917d5e7563,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b,
+    0xbafe01ff935c7305907c33bf824352ee5979b526,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf,
+    0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,
+    0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf
+  )

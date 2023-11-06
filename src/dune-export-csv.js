@@ -8,6 +8,8 @@ dotenv.config();
 const queryID = process.env.QUERY_ID; // Example Query ID: 1258228
 console.log("retrieving data for query " + queryID + "..."); // Check that Query ID is passing through
 
+const QUERY_RESULT_FILE = process.env.QUERY_RESULT_FILE;
+
 // Add the API key to header object
 const meta = {
   "x-dune-api-key": process.env.DUNE_API_KEY,
@@ -94,12 +96,11 @@ async function fetchQueryData(queryID) {
     const resultsData = await resultsResponse.text();
     
     // Save the CSV data to a file
-    const fileName = `results_${queryID}.csv`;
-    fs.writeFile(fileName, resultsData, (err) => {
+    fs.writeFile(QUERY_RESULT_FILE, resultsData, (err) => {
       if (err) {
-        console.error(`Error writing the CSV file: ${fileName}`, err);
+        console.error(`Error writing the CSV file: ${QUERY_RESULT_FILE}`, err);
       } else {
-        console.log(`CSV file has been saved as ${fileName}`);
+        console.log(`CSV file has been saved as ${QUERY_RESULT_FILE}`);
       }
     });
   } catch (error) {
