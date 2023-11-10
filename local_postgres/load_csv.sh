@@ -3,4 +3,4 @@
 # when a query returns non-zero, the script will be set to stop
 set -e
 
-psql -v ON_ERROR_STOP=1 --dbname "postgres" -f "./sql/create_tables.sql"
+psql -v ON_ERROR_STOP=1 --dbname "postgres" -f "./sql/load_csv.sql"

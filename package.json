@@ -8,9 +8,11 @@
   "type": "module",
   "scripts": {
     "1:dune:import:csv": "node ./src/dune-export-csv.js",
-    "2.1:fix:dist:ethereum:traces": "node ./src/fix-dist-ethereum-traces.js",
+    "2.1:fix:dune:result": "node ./src/fix-dune-result.js",
     "3:copy:duneresult:to:csv":"node ./src/copy-dune-results.js",
-    "9:sql:create:tables": "cd ./dune/postgres_scripts/; sh ./create_tables.sh"
+    "9.1:sql:create:tables:if:not": "cd ./local_postgres; sh ./create_tables.sh",
+    "9.2:sql:load:csvs": "cd ./local_postgres; sh ./load_csv.sh",
+    "9.3:sql:create:refresh:mtrlzd:view": "cd ./local_postgres; sh ./create_or_refresh_materialized_views.sh"
   },
   "devDependencies": {
     "csv": "^6.2.5",
