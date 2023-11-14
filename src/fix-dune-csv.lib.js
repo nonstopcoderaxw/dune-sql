@@ -8,11 +8,21 @@ export const fix_block_number = (csv_string) => {
   });
 
   const fixed_records = records.map((cols) => {
-    cols["block_number"] = Number(cols["block_number"]);
+    if (cols["block_number"]) {
+      cols["block_number"] = Number(cols["block_number"]);
+    }
+
+    if (cols["trace_address"]) {
+      cols["trace_address"] = cols["trace_address"]
+        .replace("[", "{")
+        .replace("]", "}")
+        .replaceAll(" ", ",");
+    }
+    
     return cols;
   });
 
   return stringify(fixed_records, {
-    header: true
+    header: true,
   });
 };

@@ -36,7 +36,7 @@ CREATE TABLE "ethereum.traces"(
     tx_hash TEXT,
     "from" TEXT,
     "to" TEXT,
-    trace_address TEXT,
+    trace_address int8[],
     type TEXT,
     address TEXT,
     code TEXT,

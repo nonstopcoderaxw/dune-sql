@@ -25,7 +25,7 @@ COPY "cex.addresses"(
     added_date
 )
 FROM
-    '/Volumes/t7 5/mac/gitProjects/dune-sql/csv/cex.addresses.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/cex.addresses.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.traces"(
     block_time,
@@ -53,7 +53,7 @@ COPY "ethereum.traces"(
     block_date
 )
 FROM
-    '/Volumes/t7 5/mac/gitProjects/dune-sql/csv/ethereum.traces.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/ethereum.traces.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.transactions"(
     block_time,
@@ -78,7 +78,7 @@ COPY "ethereum.transactions"(
     block_date
 )
 FROM
-    '/Volumes/t7 5/mac/gitProjects/dune-sql/csv/ethereum.transactions.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/ethereum.transactions.csv' DELIMITER ',' CSV HEADER;
 
 COPY "evms.contracts"(
     blockchain,
@@ -95,7 +95,7 @@ COPY "evms.contracts"(
     created_at
 )
 FROM
-    '/Volumes/t7 5/mac/gitProjects/dune-sql/csv/evms.contracts.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/evms.contracts.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.signatures"(
     id,
@@ -107,7 +107,7 @@ COPY "ethereum.signatures"(
     created_at
 )
 FROM
-    '/Volumes/t7 5/mac/gitProjects/dune-sql/csv/ethereum.signatures.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/ethereum.signatures.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.logs"(
     block_time,
@@ -127,6 +127,6 @@ COPY "ethereum.logs"(
     tx_to
 )
 FROM
-    '/Volumes/t7 5/mac/gitProjects/dune-sql/csv/ethereum.logs.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/ethereum.logs.csv' DELIMITER ',' CSV HEADER;
 
 

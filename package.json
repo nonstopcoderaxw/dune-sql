@@ -9,19 +9,32 @@
   "scripts": {
     "1:dune:import:csv": "node ./src/dune-export-csv.js",
     "2.1:fix:dune:result": "node ./src/fix-dune-result.js",
-    "3:copy:duneresult:to:csv":"node ./src/copy-dune-results.js",
+    "3:copy:duneresult:to:csv": "node ./src/copy-dune-results.js",
     "9.1:sql:create:tables:if:not": "cd ./local_postgres; sh ./create_tables.sh",
     "9.2:sql:load:csvs": "cd ./local_postgres; sh ./load_csv.sh",
     "9.3:sql:create:refresh:mtrlzd:view": "cd ./local_postgres; sh ./create_or_refresh_materialized_views.sh"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@nomicfoundation/hardhat-verify": "^1.0.0",
+    "@typechain/ethers-v6": "^0.4.0",
+    "@typechain/hardhat": "^8.0.0",
+    "chai": "^4.2.0",
     "csv": "^6.2.5",
     "csv-parse": "5.5.2",
     "csv-stringify": "6.4.0",
     "csv-writer": "^1.6.0",
+    "dotenv": "^16.3.1",
     "esm": "^3.2.25",
+    "ethers": "^6.4.0",
+    "hardhat": "^2.19.0",
+    "hardhat-gas-reporter": "^1.0.8",
     "node-fetch": "^3.3.0",
-    "writer": "^1.0.0",
-    "dotenv": "^16.3.1"
+    "solidity-coverage": "^0.8.0",
+    "typechain": "^8.1.0",
+    "writer": "^1.0.0"
   }
 }
