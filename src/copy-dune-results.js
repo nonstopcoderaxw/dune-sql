@@ -11,7 +11,7 @@ if (!dest) {
     process.exit();
 }
 
-fs.writeFile(dest, csv_string, {flag: 'r+'}, (err) => {
+fs.writeFile(dest, csv_string, (err) => {
   if (err) {
     console.error(`Error writing the CSV file: ${dest}`, err);
   } else {
