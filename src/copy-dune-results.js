@@ -1,5 +1,4 @@
 import fs from "fs";
-import { fix_block_number } from "./fix-dune-csv.lib.js";
 import dotenv from 'dotenv';
 dotenv.config();
 

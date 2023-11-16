@@ -2623,6 +2623,11 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+jsonrepair@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/jsonrepair/-/jsonrepair-3.4.1.tgz#7efc04f1aa79e79f2e87a43857395f09b34ac114"
+  integrity sha512-KcKVkjXuNIIVDOzjLqPmo6xNG6rR7qnJWQ/jMkJjan+NPxipNYxkDNCWFO3sncVhiG+V48WVlCe7XSs0Yd4K3A==
+
 jsonschema@^1.2.4:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/jsonschema/-/jsonschema-1.4.1.tgz#cc4c3f0077fb4542982973d8a083b6b34f482dab"

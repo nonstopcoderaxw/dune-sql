@@ -1,5 +1,5 @@
 import fs from "fs";
-import { fix_block_number } from "./fix-dune-csv.lib.js";
+import { fix_rows } from "./fix-dune-csv.lib.js";
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -7,7 +7,7 @@ const CSV_FILE_NAME = process.env.QUERY_RESULT_FILE;
 let csv_string = fs.readFileSync(CSV_FILE_NAME).toString();
 
 // fix block number
-csv_string = fix_block_number(csv_string);
+csv_string = fix_rows(csv_string);
 
 fs.writeFile(CSV_FILE_NAME, csv_string, (err) => {
   if (err) {

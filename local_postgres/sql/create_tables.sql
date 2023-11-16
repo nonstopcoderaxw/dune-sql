@@ -11,6 +11,8 @@ DROP TABLE if exists "ethereum.signatures" CASCADE;
 
 DROP TABLE if exists "ethereum.logs" CASCADE;
 
+DROP TABLE if exists "ethereum.contracts" CASCADE;
+
 -- STEP 2
 CREATE TABLE "cex.addresses"(
     blockchain TEXT,
@@ -36,7 +38,7 @@ CREATE TABLE "ethereum.traces"(
     tx_hash TEXT,
     "from" TEXT,
     "to" TEXT,
-    trace_address int8[],
+    trace_address int8 [],
     type TEXT,
     address TEXT,
     code TEXT,
@@ -72,7 +74,7 @@ CREATE TABLE "ethereum.transactions"(
 
 CREATE TABLE "evms.contracts"(
     blockchain TEXT,
-    abi TEXT,
+    abi json,
     address TEXT,
     "from" TEXT,
     code TEXT,
@@ -88,7 +90,7 @@ CREATE TABLE "evms.contracts"(
 CREATE TABLE "ethereum.signatures"(
     id TEXT,
     signature TEXT,
-    abi TEXT,
+    abi json,
     type TEXT,
     namespace TEXT,
     name TEXT,
@@ -111,4 +113,19 @@ CREATE TABLE "ethereum.logs"(
     block_date date,
     tx_from TEXT,
     tx_to TEXT
+);
+
+CREATE TABLE "ethereum.contracts"(
+    abi_id TEXT,
+    abi json,
+    address TEXT,
+    "from" TEXT,
+    code TEXT,
+    name TEXT,
+    namespace TEXT,
+    dynamic TEXT,
+    base TEXT,
+    factory TEXT,
+    detection_source TEXT,
+    created_at timestamp
 );

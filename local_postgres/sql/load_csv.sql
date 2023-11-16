@@ -16,6 +16,9 @@ DELETE FROM
 DELETE FROM
     "ethereum.logs";
 
+DELETE FROM
+    "ethereum.contracts";
+
 COPY "cex.addresses"(
     blockchain,
     address,
@@ -129,4 +132,19 @@ COPY "ethereum.logs"(
 FROM
     '/Volumes/t7/mac/gitProjects/dune-sql/csv/ethereum.logs.csv' DELIMITER ',' CSV HEADER;
 
-
+COPY "ethereum.contracts"(
+    abi_id,
+    abi,
+    address,
+    "from",
+    code,
+    name,
+    namespace,
+    dynamic,
+    base,
+    factory,
+    detection_source,
+    created_at
+)
+FROM
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/ethereum.contracts.csv' DELIMITER ',' CSV HEADER;

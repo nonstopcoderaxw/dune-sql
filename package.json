@@ -11,6 +11,7 @@
     "2.1:fix:dune:result": "node ./src/fix-dune-result.js",
     "3:copy:duneresult:to:csv": "node ./src/copy-dune-results.js",
     "9.1:sql:create:tables:if:not": "cd ./local_postgres; sh ./create_tables.sh",
+    "9.1.1:sql:create:functions:if:not": "cd ./local_postgres; sh ./create_functions.sh",
     "9.2:sql:load:csvs": "cd ./local_postgres; sh ./load_csv.sh",
     "9.3:sql:create:refresh:mtrlzd:view": "cd ./local_postgres; sh ./create_or_refresh_materialized_views.sh"
   },
@@ -35,6 +36,7 @@
     "node-fetch": "^3.3.0",
     "solidity-coverage": "^0.8.0",
     "typechain": "^8.1.0",
-    "writer": "^1.0.0"
+    "writer": "^1.0.0",
+    "jsonrepair": "^3.4.1"
   }
 }
