@@ -1,4 +1,4 @@
--- https://dune.com/queries/1537309/2577373
+-- source: https://dune.com/queries/1537309/2577373
 with 
     inputs_agg as (
         SELECT 
@@ -19,13 +19,12 @@ with
                     , namespace
                     , abi
                     -- , *
-                FROM {{chain}}.contracts
-                WHERE address = {{contract}}
+                FROM ethereum.contracts
+                WHERE address = 0x1f9840a85d5af5bf1d1762f925bdaddc4201f984 and name = 'UNI' and namespace = 'uniswap'
                 ) a, unnest(abi) as abi_un(functions)
             ) b
         WHERE functions LIKE '%"type":"function"%'
-    ), 
-    
+    ),
     unnested_functions as (
         SELECT 
             inputs_agg.signature
@@ -36,13 +35,13 @@ with
             , concat(o.names, '::', o.types) as outputs
         FROM inputs_agg, unnest(inputs) as i(names, types), unnest(outputs) as o(names, types)
     )
-    
+
 SELECT
     signature
     , function_type_raw
     -- , name 
     -- , namespace
-    , concat(namespace, '_', '{{chain}}', '.', name, '_call_', signature) as table_name
+    , concat(namespace, '_', 'ethereum', '.', name, '_call_', signature) as table_name
     , array_agg(distinct inputs) inputs
     , array_agg(distinct outputs) outputs
 FROM unnested_functions
