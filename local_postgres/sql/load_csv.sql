@@ -1,7 +1,4 @@
 DELETE FROM
-    "cex.addresses";
-
-DELETE FROM
     "ethereum.traces";
 
 DELETE FROM
@@ -18,17 +15,6 @@ DELETE FROM
 
 DELETE FROM
     "ethereum.contracts";
-
-COPY "cex.addresses"(
-    blockchain,
-    address,
-    cex_name,
-    distinct_name,
-    added_by,
-    added_date
-)
-FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/csv/cex.addresses.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.traces"(
     block_time,
@@ -56,7 +42,7 @@ COPY "ethereum.traces"(
     block_date
 )
 FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/csv/ethereum.traces.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/to-be-loaded/ethereum.traces.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.transactions"(
     block_time,
@@ -81,7 +67,7 @@ COPY "ethereum.transactions"(
     block_date
 )
 FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/csv/ethereum.transactions.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/to-be-loaded/ethereum.transactions.csv' DELIMITER ',' CSV HEADER;
 
 COPY "evms.contracts"(
     blockchain,
@@ -98,7 +84,7 @@ COPY "evms.contracts"(
     created_at
 )
 FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/csv/evms.contracts.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/to-be-loaded/evms.contracts.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.signatures"(
     id,
@@ -110,7 +96,7 @@ COPY "ethereum.signatures"(
     created_at
 )
 FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/csv/ethereum.signatures.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/to-be-loaded/ethereum.signatures.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.logs"(
     block_time,
@@ -130,7 +116,7 @@ COPY "ethereum.logs"(
     tx_to
 )
 FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/csv/ethereum.logs.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/to-be-loaded/ethereum.logs.csv' DELIMITER ',' CSV HEADER;
 
 COPY "ethereum.contracts"(
     abi_id,
@@ -147,4 +133,4 @@ COPY "ethereum.contracts"(
     created_at
 )
 FROM
-    '/Volumes/t7/mac/gitProjects/dune-sql/csv/ethereum.contracts.csv' DELIMITER ',' CSV HEADER;
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/to-be-loaded/ethereum.contracts.csv' DELIMITER ',' CSV HEADER;
