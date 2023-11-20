@@ -16,6 +16,9 @@ DELETE FROM
 DELETE FROM
     "ethereum.contracts";
 
+DELETE FROM
+    "labels.contracts";
+
 COPY "ethereum.traces"(
     block_time,
     block_number,
@@ -134,3 +137,18 @@ COPY "ethereum.contracts"(
 )
 FROM
     '/Volumes/t7/mac/gitProjects/dune-sql/csv/to-be-loaded/ethereum.contracts.csv' DELIMITER ',' CSV HEADER;
+
+COPY "labels.contracts"(
+    blockchain,
+    address,
+    name,
+    category,
+    contributor,
+    source,
+    created_at,
+    updated_at,
+    model_name,
+    label_type
+)
+FROM
+    '/Volumes/t7/mac/gitProjects/dune-sql/csv/to-be-loaded/labels.contracts.csv' DELIMITER ',' CSV HEADER;

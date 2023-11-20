@@ -13,6 +13,8 @@ DROP TABLE if exists "ethereum.logs" CASCADE;
 
 DROP TABLE if exists "ethereum.contracts" CASCADE;
 
+DROP TABLE if exists "labels.contracts" CASCADE;
+
 -- STEP 2
 CREATE TABLE "cex.addresses"(
     blockchain TEXT,
@@ -128,4 +130,17 @@ CREATE TABLE "ethereum.contracts"(
     factory TEXT,
     detection_source TEXT,
     created_at timestamp
+);
+
+CREATE TABLE "labels.contracts"(
+    blockchain TEXT,
+    address TEXT,
+    name TEXT,
+    category TEXT,
+    contributor TEXT,
+    source TEXT,
+    created_at timestamp,
+    updated_at timestamp,
+    model_name TEXT,
+    label_type TEXT
 );
