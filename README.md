@@ -1,7 +1,7 @@
 # dune-sql
 This project is to offer a SQL playground to run DuneSQL in a local postgres environment.
 
-## Key project folder
+## Key project folders
 - csv/to-be-loaded: csv files to be loaded by executing ```yarn 9.2:sql:load:csvs```
 - csv/{sql_name}: csv files including sample data to execute SQLs
 - dune/dune_sql_for_csv: DuneSQL to retrieve sample data
