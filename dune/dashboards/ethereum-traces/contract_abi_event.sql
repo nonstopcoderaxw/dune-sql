@@ -32,7 +32,7 @@ with
             , concat(case when i.indexed then '(index) ' else '' end, i.names, '::', i.types) as inputs
         FROM inputs_agg, unnest(inputs) as i(names, types, indexed)
     )
-    
+
 SELECT
     signature
     -- , name 
